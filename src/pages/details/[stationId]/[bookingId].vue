@@ -43,14 +43,14 @@ const dateRange = computed(() => {
 
 <template>
   <section class="flex flex-col items-center justify-center ">
-    <h2 class="h-20 text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-600">
+    <h2 class="h-20 text-4xl sm:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-600">
       {{ t('details.caption') }}
     </h2>
     <Spinner v-if="isLoading" class="mt-4" />
-    <div v-else class="text-left border border-dark-500 dark:border-white rounded-lg overflow-hidden">
+    <div v-else class="text-left border border-dark-500 dark:border-white rounded-lg overflow-hidden w-full sm:w-xl">
       <img src="https://images.unsplash.com/photo-1534437401535-8cdaa9b93ae4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80" alt="" class="object-cover w-full h-60">
       <dl class="mt-4 py-4 px-4">
-        <div class="grid grid-cols-3 gap-4 px-6">
+        <div class="py-2 sm:grid grid-cols-3 gap-4 px-6">
           <dt class="flex text-lg">
             <div class="i-carbon-user" />
             <span class="ml-2">{{ t('details.information.customer') }}</span>
@@ -59,7 +59,7 @@ const dateRange = computed(() => {
             {{ details?.customerName }}
           </dd>
         </div>
-        <div class="py-2 grid grid-cols-3 gap-4 px-6">
+        <div class="py-2 sm:grid grid-cols-3 gap-4 px-6">
           <dt class="flex text-lg">
             <div class="i-carbon-earth" />
             <span class="ml-2">{{ t('details.information.station') }}</span>
@@ -68,7 +68,7 @@ const dateRange = computed(() => {
             {{ station?.name }}
           </dd>
         </div>
-        <div class="py-2 grid grid-cols-3 gap-4 px-6">
+        <div class="py-2 sm:grid grid-cols-3 gap-4 px-6">
           <dt class="flex text-lg">
             <div class="i-carbon-calendar" />
             <span class="ml-2">{{ t('details.information.startdate') }}</span>
@@ -77,7 +77,7 @@ const dateRange = computed(() => {
             {{ formatDateTime(new Date()) }}
           </dd>
         </div>
-        <div class="py-2 grid grid-cols-3 gap-4 px-6">
+        <div class="py-2 sm:grid grid-cols-3 gap-4 px-6">
           <dt class="flex text-lg">
             <div class="i-carbon-calendar" />
             <span class="ml-2">{{ t('details.information.enddate') }}</span>
@@ -86,7 +86,7 @@ const dateRange = computed(() => {
             {{ formatDateTime(new Date()) }}
           </dd>
         </div>
-        <div class="py-2 grid grid-cols-3 gap-4 px-6">
+        <div class="py-2 sm:grid grid-cols-3 gap-4 px-6">
           <dt class="flex text-lg">
             <div class="i-carbon-time" />
             <span class="ml-2">{{ t('details.information.duration') }}</span>
