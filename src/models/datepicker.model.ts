@@ -1,5 +1,6 @@
 export interface IEvent {
   bookingId: string
+  customerName: string
   isStart: boolean
   position: number
   dateTime: Date

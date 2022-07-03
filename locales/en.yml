@@ -8,8 +8,8 @@ button:
   toggle_dark: Toggle dark mode
   toggle_langs: Change languages
 calendar:
-  pickup: Pickup
-  returnal: Returnal
+  pickup: Van pick up from {customerName}
+  returnal: Returning van from {customerName}
   today: Today
 day:
   '0': Sun
@@ -20,13 +20,20 @@ day:
   '5': Fri
   '6': Sat
 details:
-  caption: Details
+  caption: booking details
+  information:
+    customer: Customer
+    duration: Duration
+    enddate: Enddate
+    startdate: Startdate
+    station: Station
 home:
-  select-station: Please select a station
+  select-station: Select your start of an adventure
 intro:
   aka: Also known as
   desc: Opinionated Vite Starter Template
   dynamic-route: Demo of dynamic route
   hi: Hi, {name}!
   whats-your-name: What's your name?
+loading: Loading data...
 not-found: Not found

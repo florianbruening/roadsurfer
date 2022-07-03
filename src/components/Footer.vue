@@ -24,5 +24,9 @@ const toggleLocales = () => {
     <a class="icon-btn mx-2" rel="noreferrer" href="https://github.com/florianbruening/roadsurfer" target="_blank" title="GitHub">
       <div i-carbon-logo-github />
     </a>
+    <div class="text-sm">
+      <a target="_blank" href="https://icons8.com/icon/PTx98y4GSxBG/van">Van</a> &
+      <a target="_blank" href="https://icons8.com/icon/SGLlYIY8kkK2/ocean-wave">Ocean Wave</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
+    </div>
   </nav>
 </template>

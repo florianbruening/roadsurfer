@@ -12,9 +12,11 @@ declare module '@vue/runtime-core' {
     DatepickerHeader: typeof import('./components/WeekView/Datepicker/DatepickerHeader.vue')['default']
     DatepickerNavigation: typeof import('./components/WeekView/Datepicker/DatepickerNavigation.vue')['default']
     Footer: typeof import('./components/Footer.vue')['default']
+    Logo: typeof import('./components/Base/Logo.vue')['default']
     README: typeof import('./components/README.md')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    Spinner: typeof import('./components/Base/Spinner.vue')['default']
     StationAutoComplete: typeof import('./components/WeekView/StationAutoComplete.vue')['default']
   }
 }

@@ -9,6 +9,7 @@ export const useBookings = () => {
     const eventTime = dateIsEqual(tileDate, new Date(booking.startDate)) ? new Date(booking.startDate) : new Date(booking.endDate)
     return {
       bookingId: booking.id,
+      customerName: booking.customerName,
       isStart: dateIsEqual(tileDate, new Date(booking.startDate)),
       day: tileDate.getDay() === 0 ? 6 : tileDate.getDay(),
       dateTime: eventTime,

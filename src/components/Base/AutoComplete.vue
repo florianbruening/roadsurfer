@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { defineEmits } from 'vue'
+import { computed, defineEmits } from 'vue'
 import { onClickOutside } from '@vueuse/core'
 
 interface IAutoCompleteItem {
@@ -8,16 +8,16 @@ interface IAutoCompleteItem {
 }
 
 const props = defineProps<{
-  modelValue: unknown
+  value: IAutoCompleteItem
   autoCompleteData: IAutoCompleteItem[]
   itemText: string
 }>()
 
 const emit = defineEmits<{
-  (e: 'itemSelected', item: IAutoCompleteItem | undefined): void
+  (e: 'itemSelected', item: IAutoCompleteItem | undefined): VoidFunction
 }>()
 
-const { autoCompleteData, itemText } = toRefs(props)
+const { autoCompleteData, itemText, value } = toRefs(props)
 
 const autoCompleteInput = ref<HTMLInputElement>()
 const inputValue = ref('')
@@ -41,6 +41,11 @@ const clearInputValue = () => {
 }
 
 watchEffect(() => {
+  if (value.value)
+    inputValue.value = value.value[itemText.value]
+})
+
+watchEffect(() => {
   const foundItem = autoCompleteData.value.filter((item: any) => item[itemText.value].toLowerCase() === inputValue.value.toLowerCase())
 
   if (foundItem.length === 1)
@@ -49,7 +54,7 @@ watchEffect(() => {
 </script>
 
 <template>
-  <div class="hover:cursor-pointer relative text-gray-900 dark:text-white w-96">
+  <div class="hover:cursor-pointer relative text-gray-900 dark:text-white w-86">
     <input ref="autoCompleteInput" v-model="inputValue" type="text" class="w-full bg-white dark:bg-dark-500 px-4 py-2 focus:outline-none border-x border-t border-gray-400" :class="[showSuggestions && suggestions.length ? 'rounded-t-lg' : 'rounded-lg border-b']" @focus="showSuggestions = true">
     <div v-if="inputValue" class="absolute top-3 right-3 hover:cursor-pointer" i="carbon-trash-can" @click="clearInputValue" />
     <ul v-if="showSuggestions && suggestions.length" class="decoration-none text-left">
