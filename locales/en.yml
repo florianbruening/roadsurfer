@@ -1,0 +1,32 @@
+button:
+  about: About
+  back: Back
+  go: GO
+  home: Home
+  toggle:
+    language: Toggle language
+  toggle_dark: Toggle dark mode
+  toggle_langs: Change languages
+calendar:
+  pickup: Pickup
+  returnal: Returnal
+  today: Today
+day:
+  '0': Sun
+  '1': Mon
+  '2': Tue
+  '3': Wed
+  '4': Thu
+  '5': Fri
+  '6': Sat
+details:
+  caption: Details
+home:
+  select-station: Please select a station
+intro:
+  aka: Also known as
+  desc: Opinionated Vite Starter Template
+  dynamic-route: Demo of dynamic route
+  hi: Hi, {name}!
+  whats-your-name: What's your name?
+not-found: Not found

@@ -1,0 +1,32 @@
+button:
+  about: Über
+  back: Zurück
+  go: Los
+  home: Startseite
+  toggle:
+    language: Sprache umschalten
+  toggle_dark: Dunkelmodus umschalten
+  toggle_langs: Sprachen ändern
+calendar:
+  pickup: Annahme
+  returnal: Rückgabe
+  today: Heute
+day:
+  '0': So
+  '1': Mo
+  '2': Di
+  '3': Mi
+  '4': Do
+  '5': Fr
+  '6': Sa
+details:
+  caption: Details
+home:
+  select-station: Bitte wählen Sie einen Standort aus.
+intro:
+  aka: Auch bekannt als
+  desc: Vite Startvorlage mit Vorlieben
+  dynamic-route: Demo einer dynamischen Route
+  hi: Hi, {name}!
+  whats-your-name: Wie heißt du?
+not-found: Nicht gefunden
