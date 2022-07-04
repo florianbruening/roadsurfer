@@ -78,7 +78,9 @@ watchEffect(() => {
 
 watchEffect(() => {
   const foundItem = autoCompleteData.value.filter((item: any) => item[itemText.value].toLowerCase() === inputValue.value.toLowerCase())
-  showSuggestions.value = true
+  if (value.value)
+    showSuggestions.value = true
+
   if (foundItem.length === 1)
     selectItem(foundItem[0])
 })

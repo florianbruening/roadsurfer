@@ -6,7 +6,6 @@ import '@vue/runtime-core'
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     AutoComplete: typeof import('./components/Base/AutoComplete.vue')['default']
-    Counter: typeof import('./components/Counter.vue')['default']
     Datepicker: typeof import('./components/WeekView/Datepicker/Datepicker.vue')['default']
     DatepickerEvents: typeof import('./components/WeekView/Datepicker/DatepickerEvents.vue')['default']
     DatepickerHeader: typeof import('./components/WeekView/Datepicker/DatepickerHeader.vue')['default']
