@@ -1,7 +1,6 @@
 import { ViteSSG } from 'vite-ssg'
 import { setupLayouts } from 'virtual:generated-layouts'
 import App from './App.vue'
-import api from '@/plugins/api'
 import generatedRoutes from '~pages'
 
 import '@unocss/reset/tailwind.css'

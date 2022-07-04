@@ -15,9 +15,8 @@ import LinkAttributes from 'markdown-it-link-attributes'
 import Unocss from 'unocss/vite'
 
 const markdownWrapperClasses = 'prose prose-sm m-auto text-left'
-const ASSET_URL = process.env.ASSET_URL || ''
 export default defineConfig({
-  base: `${ASSET_URL}/dist`,
+  base: '/roadsurfer/',
 
   resolve: {
     alias: {

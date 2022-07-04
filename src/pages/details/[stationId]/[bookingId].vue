@@ -22,8 +22,10 @@ const details = ref<IBooking>()
 const isLoading = ref(true)
 
 onMounted(() => {
-  station.value = getStoreById(route.params.stationId)
-  api.getBookingDetails(route.params.stationId, route.params.bookingId)
+  const stationid = Array.isArray(route.params.stationId) ? route.params.stationId[0] : route.params.stationId
+  const bookingId = Array.isArray(route.params.bookingId) ? route.params.bookingId[0] : route.params.bookingId
+  station.value = getStoreById(stationid)
+  api.getBookingDetails(stationid, bookingId)
     .then((response) => {
       details.value = JSON.parse(response.data)
     })
