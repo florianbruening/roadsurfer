@@ -3,7 +3,7 @@ import type { IStation } from '~/models/api.model'
 import { api } from '~/plugins/api'
 
 export const useStationsStore = defineStore('stations', () => {
-  const selectedStation = ref<IStation>()
+  const selectedStation = ref<IStation | undefined | null>(null)
   const stations = ref<IStation[]>([])
   const loadStations = () => {
     stations.value.splice(0)

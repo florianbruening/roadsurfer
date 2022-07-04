@@ -76,7 +76,7 @@ const currentMonth = computed(() => {
           <div class="sticky left-0 z-10 w-14 flex-none bg-white dark:bg-dark-500  ring-1 ring-gray-100" />
           <div class="grid flex-auto grid-cols-1 grid-rows-1">
             <!-- Horizontal lines -->
-            <div class="col-start-1 col-end-2 row-start-1 grid divide-y divide-gray-100 dark:divide-white" style="grid-template-rows: repeat(48, minmax(3.5rem, 1fr))">
+            <div class="col-start-1 col-end-2 row-start-1 grid divide-y divide-gray-100 dark:divide-white" style="grid-template-rows: repeat(24, minmax(3.5rem, 1fr))">
               <div ref="containerOffset" class="row-end-1 h-7" />
               <template v-for="i in 24" :key="i">
                 <div>
@@ -84,7 +84,6 @@ const currentMonth = computed(() => {
                     {{ formatTime(i - 1) }}
                   </div>
                 </div>
-                <div />
               </template>
             </div>
 

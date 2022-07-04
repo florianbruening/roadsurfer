@@ -32,9 +32,9 @@ const filteredEvents = computed(() => {
 
 <template>
   <ol v-if="selectedStation" class="col-start-1 col-end-2 row-start-1 grid grid-cols-1 sm:grid-cols-7 sm:pr-8" style="grid-template-rows: 1.75rem repeat(288, minmax(0, 1fr)) auto">
-    <li v-for="event in filteredEvents" :key="event.bookingId" class="relative mt-px flex" :class="[sm ? `col-start-${event.day}` : 'col-start-1']" :style="`grid-row: ${event.position} / span 12`">
+    <li v-for="event in filteredEvents" :key="event.bookingId" class="relative mt-px flex" :class="[sm ? `col-start-${event.day}` : 'col-start-1']" :style="`grid-row: ${event.position} / span 18`">
       <router-link :to="{ name: 'details-stationId-bookingId', params: { stationId: selectedStation.id, bookingId: event.bookingId } }" :class="[event.isStart ? 'bg-blue-50 hover:bg-blue-100 dark:bg-blue-800 dark:hover:bg-blue-600' : 'bg-teal-50 hover:bg-teal-100 dark:bg-teal-800 dark:hover:bg-teal-600']" class="group absolute inset-1 flex flex-col overflow-y-auto rounded-lg  p-2 text-xs leading-5 ">
-        <p :class="[event.isStart ? 'text-blue-700 dark:text-white' : 'text-teal-700 dark:text-white']" class="order-1 font-semibold">
+        <p :class="[event.isStart ? 'text-blue-700 dark:text-white' : 'text-teal-700 dark:text-white']" class="order-1">
           <span v-if="event.isStart">{{ t('calendar.pickup', { customerName: event.customerName }) }}</span>
           <span v-else>{{ t('calendar.returnal', { customerName: event.customerName }) }}</span>
         </p>

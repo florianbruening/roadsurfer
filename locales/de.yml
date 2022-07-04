@@ -8,8 +8,8 @@ button:
   toggle_dark: Dunkelmodus umschalten
   toggle_langs: Sprachen ändern
 calendar:
-  pickup: Annahme von Campervan durch {customerName}
-  returnal: Rückgabe von Campervan durch {customerName}
+  pickup: Annahme durch {customerName}
+  returnal: Rückgabe durch {customerName}
   today: Heute
 day:
   '0': So

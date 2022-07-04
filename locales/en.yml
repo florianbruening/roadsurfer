@@ -9,7 +9,7 @@ button:
   toggle_langs: Change languages
 calendar:
   pickup: Van pick up from {customerName}
-  returnal: Returning van from {customerName}
+  returnal: Return from {customerName}
   today: Today
 day:
   '0': Sun
@@ -25,8 +25,8 @@ details:
     customer: Customer
     duration: Duration
     durationInDays: '{duration} days'
-    enddate: Enddate
-    startdate: Startdate
+    enddate: End
+    startdate: Start
     station: Station
 home:
   select-station: Select your start of an adventure
