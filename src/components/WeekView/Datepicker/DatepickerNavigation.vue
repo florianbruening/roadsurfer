@@ -1,17 +1,24 @@
 <script setup lang="ts">
+import { storeToRefs } from 'pinia'
 import type { IDayTile } from '~/models/datepicker.model'
+import { useDateTime } from '~/composables/useDateTime'
 
 defineProps<{
   dates: IDayTile[]
 }>()
+
+const { dateIsEqual } = useDateTime()
+const calendarStore = useCalendarStore()
+const { selectedDate } = storeToRefs(calendarStore)
+const { setSelectedDate } = calendarStore
 </script>
 
 <template>
   <div class="sticky top-0 z-30 flex-none shadow ring-1 ring-black ring-opacity-5 sm:pr-8">
     <div class="grid grid-cols-7 text-sm leading-6 text-gray-500 dark:text-white sm:hidden">
-      <button v-for="date in dates" :key="date.date" type="button" class="flex flex-col items-center pt-2 pb-3">
+      <button v-for="date in dates" :key="date.date" type="button" class="flex flex-col items-center pt-2 pb-3" :class="[dateIsEqual(selectedDate, date.dateTime) ? 'bg-blue-600 text-white' : 'text-gray-900 dark:text-white']" @click="setSelectedDate(date.dateTime)">
         {{ date.shortName.substring(0, 1) }}
-        <span class="mt-1 flex h-8 w-8 items-center justify-center font-semibold text-gray-900 dark:text-white">{{ date.day }}</span>
+        <span class="mt-1 flex h-8 w-8 items-center justify-center font-semibold">{{ date.day }}</span>
       </button>
     </div>
 

@@ -10,7 +10,8 @@ export interface IEvent {
 
 export interface IDayTile {
   date: string
-  day?: number
+  day: number
+  dateTime: Date
   shortName: string
   events: IEvent[]
 }

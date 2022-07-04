@@ -24,6 +24,7 @@ details:
   information:
     customer: Kunde
     duration: Zeitraum
+    durationInDays: '{duration} Tage'
     enddate: Reiseende
     startdate: Reisebeginn
     station: Station

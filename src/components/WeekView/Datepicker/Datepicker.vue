@@ -2,9 +2,12 @@
 <script setup lang="ts">
 import { computed, onMounted, ref, toRefs } from 'vue'
 import { useI18n } from 'vue-i18n'
+import { breakpointsTailwind, useBreakpoints } from '@vueuse/core'
+import { storeToRefs } from 'pinia'
 import type { IDayTile, IEvent } from '~/models/datepicker.model'
 import type { IStation } from '~/models/api.model'
 import { useBookings } from '~/composables/useBookings'
+import { useCalendarStore } from '~/store/calendar'
 
 const props = defineProps<{
   dateFrom: Date
@@ -17,11 +20,14 @@ const emit = defineEmits<{
   (e: 'nextWeek'): void
 }>()
 
+const calendarStore = useCalendarStore()
+const { startOfTheWeek, endOfTheWeek } = storeToRefs(calendarStore)
+
 const { t, locale } = useI18n()
 
 const { dateFrom, station } = toRefs(props)
 
-const { formatDate, getFirstDayOfTheWeek, getLastDayOfTheWeek } = useDateTime()
+const { formatDate } = useDateTime()
 
 const { getBookingsForDate } = useBookings()
 
@@ -32,26 +38,25 @@ const formatTime = (time: number) => {
 }
 
 const calendar = computed(() => {
-  const start = getFirstDayOfTheWeek(dateFrom.value)
-  const end = getLastDayOfTheWeek(dateFrom.value)
-
   const dates: IDayTile[] = []
   const events: IEvent[] = []
 
-  for (let d = new Date(start); d <= end; d.setDate(d.getDate() + 1)) {
+  for (let d = new Date(startOfTheWeek.value); d <= endOfTheWeek.value; d.setDate(d.getDate() + 1)) {
     dates.push(
       {
         date: formatDate(d),
         day: d.getDate(),
+        dateTime: new Date(d),
         shortName: t(`day.${d.getDay()}`),
         events: [...getBookingsForDate(station.value.bookings, d)],
       },
     )
+
     events.push(
       ...getBookingsForDate(station.value.bookings, d),
     )
   }
-  return { start, end, dates, events }
+  return { dates, events }
 })
 
 const currentMonth = computed(() => {

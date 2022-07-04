@@ -6,7 +6,7 @@ import type { IBooking, IStation } from '~/models/api.model'
 import { useDateTime } from '~/composables/useDateTime'
 import { useStationsStore } from '~/store/stations'
 
-const { formatDateTime } = useDateTime()
+const { formatDateTime, getDaysBetween } = useDateTime()
 
 const { t } = useI18n()
 
@@ -34,10 +34,10 @@ onMounted(() => {
     })
 })
 
-const dateRange = computed(() => {
+const duration = computed(() => {
   if (!details.value?.startDate || !details.value?.endDate)
     return ''
-  return `${formatDateTime(new Date(details.value?.startDate))} - ${formatDateTime(new Date(details.value?.endDate))}`
+  return getDaysBetween(new Date(details.value?.startDate), new Date(details.value?.endDate))
 })
 </script>
 
@@ -50,7 +50,7 @@ const dateRange = computed(() => {
     <div v-else class="text-left border border-dark-500 dark:border-white rounded-lg overflow-hidden w-full sm:w-xl">
       <img src="https://images.unsplash.com/photo-1534437401535-8cdaa9b93ae4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80" alt="" class="object-cover w-full h-60">
       <dl class="mt-4 py-4 px-4">
-        <div class="py-2 sm:grid grid-cols-3 gap-4 px-6">
+        <div class="py-2 sm:grid grid-cols-2 gap-4 px-6">
           <dt class="flex text-lg">
             <div class="i-carbon-user" />
             <span class="ml-2">{{ t('details.information.customer') }}</span>
@@ -59,7 +59,7 @@ const dateRange = computed(() => {
             {{ details?.customerName }}
           </dd>
         </div>
-        <div class="py-2 sm:grid grid-cols-3 gap-4 px-6">
+        <div class="py-2 sm:grid grid-cols-2 gap-4 px-6">
           <dt class="flex text-lg">
             <div class="i-carbon-earth" />
             <span class="ml-2">{{ t('details.information.station') }}</span>
@@ -68,31 +68,35 @@ const dateRange = computed(() => {
             {{ station?.name }}
           </dd>
         </div>
-        <div class="py-2 sm:grid grid-cols-3 gap-4 px-6">
+        <div class="py-2 sm:grid grid-cols-2 gap-4 px-6">
           <dt class="flex text-lg">
             <div class="i-carbon-calendar" />
             <span class="ml-2">{{ t('details.information.startdate') }}</span>
           </dt>
           <dd>
-            {{ formatDateTime(new Date()) }}
+            <template v-if="details?.startDate">
+              {{ formatDateTime(new Date(details?.startDate)) }}
+            </template>
           </dd>
         </div>
-        <div class="py-2 sm:grid grid-cols-3 gap-4 px-6">
+        <div class="py-2 sm:grid grid-cols-2 gap-4 px-6">
           <dt class="flex text-lg">
             <div class="i-carbon-calendar" />
             <span class="ml-2">{{ t('details.information.enddate') }}</span>
           </dt>
           <dd>
-            {{ formatDateTime(new Date()) }}
+            <template v-if="details?.endDate">
+              {{ formatDateTime(new Date(details?.endDate)) }}
+            </template>
           </dd>
         </div>
-        <div class="py-2 sm:grid grid-cols-3 gap-4 px-6">
+        <div class="py-2 sm:grid grid-cols-2 gap-4 px-6">
           <dt class="flex text-lg">
             <div class="i-carbon-time" />
             <span class="ml-2">{{ t('details.information.duration') }}</span>
           </dt>
           <dd>
-            {{ formatDateTime(new Date()) }}
+            {{ t('details.information.durationInDays', { duration }) }}
           </dd>
         </div>
       </dl>

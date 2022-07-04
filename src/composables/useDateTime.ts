@@ -29,6 +29,16 @@ export const useDateTime = () => {
     return sunday
   }
 
+  const getDaysBetween = (start: Date, end: Date) => {
+    const startDate = new Date(start)
+    const endDate = new Date(end)
+
+    const diffTime = Math.abs(endDate.getTime() - startDate.getTime())
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24))
+
+    return diffDays
+  }
+
   const dateIsEqual = (date1: Date, date2: Date) => {
     const d1 = new Date(date1)
     const d2 = new Date(date2)
@@ -55,5 +65,6 @@ export const useDateTime = () => {
     getLastDayOfTheWeek,
     getTimeFromDateTime,
     formatDateTime,
+    getDaysBetween,
   }
 }
