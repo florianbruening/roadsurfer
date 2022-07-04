@@ -16,7 +16,6 @@ import Unocss from 'unocss/vite'
 
 const markdownWrapperClasses = 'prose prose-sm m-auto text-left'
 export default defineConfig({
-  base: '/roadsurfer/',
 
   resolve: {
     alias: {
