@@ -1,8 +1,7 @@
 <!-- This example requires Tailwind CSS v2.0+ -->
 <script setup lang="ts">
-import { computed, onMounted, ref, toRefs } from 'vue'
+import { computed, toRefs } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { breakpointsTailwind, useBreakpoints } from '@vueuse/core'
 import { storeToRefs } from 'pinia'
 import type { IDayTile, IEvent } from '~/models/datepicker.model'
 import type { IStation } from '~/models/api.model'
